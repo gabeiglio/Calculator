@@ -8,11 +8,6 @@
 
 #include "Lexer.hpp"
 
-Lexer::Lexer(std::string data) {
-    this->data = data;
-    this->index = 0;
-}
-
 Token Lexer::getToken() {
     while (data[index] == ' ')
         index++;

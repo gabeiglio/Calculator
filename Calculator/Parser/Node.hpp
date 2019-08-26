@@ -14,7 +14,7 @@
 #endif /* Node_hpp */
 
 struct Node {
-    //virtual double accept(Visitor& visitor) const = 0;
+    virtual ~Node() {};
 };
 
 struct NumberNode: public Node {

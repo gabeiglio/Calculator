@@ -23,7 +23,7 @@ private:
     Token getToken();
     
 public:
-    Lexer(std::string data);
+    Lexer(std::string& data): data(data), index(0) {}
     ~Lexer() {};
     std::vector<Token> tokenize();
 };

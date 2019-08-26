@@ -9,22 +9,17 @@
 #include "Parser.hpp"
 #include <iostream>
 
-Parser::Parser(std::vector<Token>& tokens) {
-    this->tokens = tokens;
-    this->index = 0;
-}
-
 Node* Parser::parse() {
     return parseExpressionExpr();
 }
 
 Node* Parser::parseExpressionExpr() {
-    Node* lhs = parseUnaryExpr();
+    Node* lhs = parseFactorExpr();
     
     if (tokens[index].type == TokenType::plus || tokens[index].type == TokenType::hyphen) {
         TokenType type = tokens[index].type;
         index++;
-        return new BinaryOpNode {lhs, type, parseFactorExpr()};
+        return new BinaryOpNode {lhs, type, parseExpressionExpr()};
     }
     
     return lhs;

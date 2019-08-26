@@ -28,7 +28,7 @@ private:
     Node* parseExpressionExpr();
     
 public:
-    Parser(std::vector<Token>& tokens);
+    Parser(const std::vector<Token>& tokens): tokens(tokens), index(0) {}
     ~Parser() {}
     
     Node* parse();

@@ -9,34 +9,13 @@
 #include <iostream>
 #include "Lexer.hpp"
 #include "Parser.hpp"
-
-double evaluate(Node* node) {
-    
-    if (BinaryOpNode* result = static_cast<BinaryOpNode*>(node)) {
-        switch (result->op) {
-            case TokenType::plus: return evaluate(result->lhs) + evaluate(result->rhs);
-            case TokenType::hyphen: return evaluate(result->lhs) - evaluate(result->rhs);
-            case TokenType::slash: return evaluate(result->lhs) / evaluate(result->rhs);
-            case TokenType::star: return evaluate(result->lhs) * evaluate(result->rhs);
-            default: break;
-        }
-    }
-    
-    if (NumberNode* result = static_cast<NumberNode*>(node)) {
-        return result->digit;
-    }
-    if (UnaryNode* result = static_cast<UnaryNode*>(node)) {
-        if (result->symbol == TokenType::hyphen) return -(evaluate(result->expr));
-        else return evaluate(result->expr);
-    }
-    
-    throw "Unexpected operation";
-}
+#include "Interpreter.hpp"
 
 int main(int argc, const char * argv[]) {
-    std::string data = "13 - 12";
+    std::string data = "4 * (12 - 2) / 12";
     
     std::vector<Token> tokens = Lexer(data).tokenize();
     Node* node = Parser(tokens).parse();
-    std::cout << evaluate(node) << std::endl;
+    double result = Interpreter().evaluate(node);
+    std::cout << result << std::endl;
 }

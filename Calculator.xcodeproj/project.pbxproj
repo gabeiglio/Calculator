@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		001D6273230CF4AD0065263E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 001D6272230CF4AD0065263E /* main.cpp */; };
 		00564776230CF6CD005A0C9A /* Lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00564774230CF6CD005A0C9A /* Lexer.cpp */; };
+		006674CF23142D640054DBB5 /* Interpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006674CD23142D640054DBB5 /* Interpreter.cpp */; };
 		00D06145230CFCCF00894AB6 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00D06143230CFCCF00894AB6 /* Parser.cpp */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +28,11 @@
 /* Begin PBXFileReference section */
 		001D626F230CF4AD0065263E /* Calculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Calculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		001D6272230CF4AD0065263E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		004923AE2313090800026B41 /* Visitor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Visitor.hpp; sourceTree = "<group>"; };
 		00564774230CF6CD005A0C9A /* Lexer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Lexer.cpp; sourceTree = "<group>"; };
 		00564775230CF6CD005A0C9A /* Lexer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lexer.hpp; sourceTree = "<group>"; };
 		00564778230CF6F4005A0C9A /* Token.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Token.hpp; sourceTree = "<group>"; };
+		006674CD23142D640054DBB5 /* Interpreter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Interpreter.cpp; sourceTree = "<group>"; };
+		006674CE23142D640054DBB5 /* Interpreter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Interpreter.hpp; sourceTree = "<group>"; };
 		00D06143230CFCCF00894AB6 /* Parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
 		00D06144230CFCCF00894AB6 /* Parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parser.hpp; sourceTree = "<group>"; };
 		00D06146230CFCE500894AB6 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
@@ -77,7 +79,8 @@
 		004923AD231308BB00026B41 /* Interpreter */ = {
 			isa = PBXGroup;
 			children = (
-				004923AE2313090800026B41 /* Visitor.hpp */,
+				006674CE23142D640054DBB5 /* Interpreter.hpp */,
+				006674CD23142D640054DBB5 /* Interpreter.cpp */,
 			);
 			path = Interpreter;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006674CF23142D640054DBB5 /* Interpreter.cpp in Sources */,
 				00564776230CF6CD005A0C9A /* Lexer.cpp in Sources */,
 				00D06145230CFCCF00894AB6 /* Parser.cpp in Sources */,
 				001D6273230CF4AD0065263E /* main.cpp in Sources */,
