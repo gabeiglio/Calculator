@@ -1,5 +1,6 @@
 # Calculator
 An arithmetic expression evaluator
+This is my first project learning C++, so any tips or feedback would be appreciated.
 
 At the moment this "Calculator" supports:
 * Addition
@@ -9,4 +10,12 @@ At the moment this "Calculator" supports:
 * Nested expressions
 * Unary expressions
 
-This is my first project learning C++, so any tips or feedback would be appreciated.
+To-Do:
+
+🔘Add support for mod (%)
+
+🔘Add support for exponents (^)
+
+🔘Fix memory leaks using std::unique_ptr
+
+🔘Add REPL style input
