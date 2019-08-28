@@ -7,15 +7,7 @@ At the moment this "Calculator" supports:
 * Substraction
 * Multiplication
 * Division
+* Mod
+* Exponent
 * Nested expressions
 * Unary expressions
-
-To-Do:
-
-🔘Add support for mod (%)
-
-🔘Add support for exponents (^)
-
-🔘Fix memory leaks using std::unique_ptr
-
-🔘Add REPL style input
