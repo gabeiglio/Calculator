@@ -12,10 +12,17 @@
 #include "Interpreter.hpp"
 
 int main(int argc, const char * argv[]) {
-    std::string data = "4 * (12 - 2) / 12";
+    std::string data;
     
-    std::vector<Token> tokens = Lexer(data).tokenize();
-    Node* node = Parser(tokens).parse();
-    double result = Interpreter().evaluate(node);
-    std::cout << result << std::endl;
+    while (true) {
+        std::cout << "> ";
+        getline(std::cin, data);
+        
+        std::vector<Token> tokens = Lexer(data).tokenize();
+        std::unique_ptr<Node> node = Parser(tokens).parse();
+        double result = Interpreter().evaluate(node.get());
+        std::cout << result << std::endl;
+    }
+    
+    
 }

@@ -21,7 +21,9 @@ typedef enum class TokenType {
     star,
     slash,
     hyphen,
-    plus
+    plus,
+    exponent,
+    mod
 } TokenType;
 
 struct Token {

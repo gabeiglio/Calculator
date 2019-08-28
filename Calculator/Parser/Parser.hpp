@@ -22,14 +22,15 @@ private:
     std::vector<Token> tokens;
     int index;
     
-    Node* parseLiteralExpr();
-    Node* parseUnaryExpr();
-    Node* parseFactorExpr();
-    Node* parseExpressionExpr();
+    std::unique_ptr<Node> parseLiteralExpr();
+    std::unique_ptr<Node> parseUnaryExpr();
+    std::unique_ptr<Node> parseExponentExpr();
+    std::unique_ptr<Node> parseFactorExpr();
+    std::unique_ptr<Node> parseExpressionExpr();
     
 public:
     Parser(const std::vector<Token>& tokens): tokens(tokens), index(0) {}
     ~Parser() {}
     
-    Node* parse();
+    std::unique_ptr<Node> parse();
 };

@@ -22,6 +22,8 @@ Token Lexer::getToken() {
         case '+': index++; return {TokenType::plus, data.substr(index - 1, 1)};
         case '-': index++; return {TokenType::hyphen, data.substr(index - 1, 1)};
         case '/': index++; return {TokenType::slash, data.substr(index - 1, 1)};
+        case '^': index++; return {TokenType::exponent, data.substr(index - 1, 1)};
+        case '%': index++; return {TokenType::mod, data.substr(index - 1, 1)};
         default: throw "Unexpected character";
     }
 }
@@ -36,7 +38,7 @@ Token Lexer::getNumberToken() {
         index++;
     }
     
-    return {type, lexeme};
+    return {type, lexeme}; 
 }
 
 std::vector<Token> Lexer::tokenize() {
