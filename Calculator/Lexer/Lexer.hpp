@@ -12,8 +12,6 @@
 #include <vector>
 #include "Token.hpp"
 
-#endif /* Lexer_hpp */
-
 class Lexer {
 private:
     std::string data;
@@ -27,3 +25,5 @@ public:
     ~Lexer() {};
     std::vector<Token> tokenize();
 };
+
+#endif /* Lexer_hpp */

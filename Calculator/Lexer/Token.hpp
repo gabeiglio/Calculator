@@ -13,7 +13,7 @@
 
 #endif /* Token_hpp */
 
-typedef enum class TokenType {
+enum TokenType {
     integerLiteral,
     doubleLiteral,
     openParen,
@@ -24,7 +24,7 @@ typedef enum class TokenType {
     plus,
     exponent,
     mod
-} TokenType;
+};
 
 struct Token {
     TokenType type;

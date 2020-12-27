@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		001D6273230CF4AD0065263E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 001D6272230CF4AD0065263E /* main.cpp */; };
 		00564776230CF6CD005A0C9A /* Lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00564774230CF6CD005A0C9A /* Lexer.cpp */; };
-		006674CF23142D640054DBB5 /* Interpreter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 006674CD23142D640054DBB5 /* Interpreter.cpp */; };
+		005C71862584189B003F4FCD /* Vm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 005C71842584189B003F4FCD /* Vm.cpp */; };
+		0077FF5025981C5D004C7F3E /* Codegen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0077FF4E25981C5D004C7F3E /* Codegen.cpp */; };
 		00D06145230CFCCF00894AB6 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 00D06143230CFCCF00894AB6 /* Parser.cpp */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +32,10 @@
 		00564774230CF6CD005A0C9A /* Lexer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Lexer.cpp; sourceTree = "<group>"; };
 		00564775230CF6CD005A0C9A /* Lexer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lexer.hpp; sourceTree = "<group>"; };
 		00564778230CF6F4005A0C9A /* Token.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Token.hpp; sourceTree = "<group>"; };
-		006674CD23142D640054DBB5 /* Interpreter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Interpreter.cpp; sourceTree = "<group>"; };
-		006674CE23142D640054DBB5 /* Interpreter.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Interpreter.hpp; sourceTree = "<group>"; };
+		005C71842584189B003F4FCD /* Vm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Vm.cpp; sourceTree = "<group>"; };
+		005C71852584189B003F4FCD /* Vm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Vm.hpp; sourceTree = "<group>"; };
+		0077FF4E25981C5D004C7F3E /* Codegen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Codegen.cpp; sourceTree = "<group>"; };
+		0077FF4F25981C5D004C7F3E /* Codegen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Codegen.hpp; sourceTree = "<group>"; };
 		00D06143230CFCCF00894AB6 /* Parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
 		00D06144230CFCCF00894AB6 /* Parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parser.hpp; sourceTree = "<group>"; };
 		00D06146230CFCE500894AB6 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
@@ -71,18 +74,10 @@
 				001D6272230CF4AD0065263E /* main.cpp */,
 				0095A856230DC6B600CE3E9C /* Lexer */,
 				00564777230CF6D9005A0C9A /* Parser */,
-				004923AD231308BB00026B41 /* Interpreter */,
+				0077FF4D25981C4E004C7F3E /* Codegen */,
+				005C718325841882003F4FCD /* Vm */,
 			);
 			path = Calculator;
-			sourceTree = "<group>";
-		};
-		004923AD231308BB00026B41 /* Interpreter */ = {
-			isa = PBXGroup;
-			children = (
-				006674CE23142D640054DBB5 /* Interpreter.hpp */,
-				006674CD23142D640054DBB5 /* Interpreter.cpp */,
-			);
-			path = Interpreter;
 			sourceTree = "<group>";
 		};
 		00564777230CF6D9005A0C9A /* Parser */ = {
@@ -93,6 +88,24 @@
 				00D06143230CFCCF00894AB6 /* Parser.cpp */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		005C718325841882003F4FCD /* Vm */ = {
+			isa = PBXGroup;
+			children = (
+				005C71842584189B003F4FCD /* Vm.cpp */,
+				005C71852584189B003F4FCD /* Vm.hpp */,
+			);
+			path = Vm;
+			sourceTree = "<group>";
+		};
+		0077FF4D25981C4E004C7F3E /* Codegen */ = {
+			isa = PBXGroup;
+			children = (
+				0077FF4E25981C5D004C7F3E /* Codegen.cpp */,
+				0077FF4F25981C5D004C7F3E /* Codegen.hpp */,
+			);
+			path = Codegen;
 			sourceTree = "<group>";
 		};
 		0095A856230DC6B600CE3E9C /* Lexer */ = {
@@ -131,7 +144,7 @@
 		001D6267230CF4AD0065263E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Gabriel Igliozzi";
 				TargetAttributes = {
 					001D626E230CF4AD0065263E = {
@@ -145,6 +158,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 001D6266230CF4AD0065263E;
 			productRefGroup = 001D6270230CF4AD0065263E /* Products */;
@@ -161,9 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				006674CF23142D640054DBB5 /* Interpreter.cpp in Sources */,
 				00564776230CF6CD005A0C9A /* Lexer.cpp in Sources */,
 				00D06145230CFCCF00894AB6 /* Parser.cpp in Sources */,
+				005C71862584189B003F4FCD /* Vm.cpp in Sources */,
+				0077FF5025981C5D004C7F3E /* Codegen.cpp in Sources */,
 				001D6273230CF4AD0065263E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +212,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -256,6 +272,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -285,6 +302,7 @@
 		001D6277230CF4AD0065263E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y6FZBP9UU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -294,6 +312,7 @@
 		001D6278230CF4AD0065263E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Y6FZBP9UU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
